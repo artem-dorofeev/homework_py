@@ -3,7 +3,7 @@ greeting = "Hello Bill"
 for i in greeting:
     print(i, end='')
 
-greeting = input(">>>")
+# greeting = input(">>>")
 
 for i in greeting:
     if i == 'l':
