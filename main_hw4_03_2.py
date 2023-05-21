@@ -6,6 +6,7 @@ def format_ingredients(items):
         new_items = str(items[0])
         i = 1
         while i < len(items):
+
             if i == len(items) - 1:
                 new_items += ' and ' + str(items[i])
             else:
