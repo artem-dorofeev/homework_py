@@ -28,13 +28,16 @@ def is_valid_password(password):
 
 
 def get_password():
+    result = False
+    i = 1
+    while result == False and i in range(100):
+        new_pass = get_random_password()
+        result = is_valid_password(new_pass)
+        print(f'i > {i} pass > {new_pass} valid {result}')
+        i += 1
+
+    return new_pass if result else False
 
 
-    
-
-new_pass = '1Q2W3E4R'
-
-print(len(new_pass))
-
-result = is_valid_password(new_pass)
+result = get_password()
 print(result)
