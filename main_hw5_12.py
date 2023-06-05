@@ -9,11 +9,11 @@ def replace_spam_words(text, spam_words):
     return result
 
 
-all_text = 'function of re in python will search the regular expression pattern' \
+all_text = 'Function of re in python will search the regular expression pattern' \
     'and return the first occurrence. The Python RegEx Match method checks for'
 
 
-word_list = ['Python', 'first', 'search']
+word_list = ['Python', 'fIrst', 'search']
 
 
 print(replace_spam_words(all_text, word_list))

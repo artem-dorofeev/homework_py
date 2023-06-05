@@ -1,1 +1,6 @@
-hello!2
+Robert Stivenson,50
+Alex Denver,20
+Drake Mikelsson,100
+Robert Stivenson,28
+Alex Denver,30
+Drake Mikelsson,19
