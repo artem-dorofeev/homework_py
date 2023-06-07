@@ -1,3 +1,3 @@
 result = ""
 with open("class.txt") as file:
-    result = file.raed(1)
+    result = file.read(1)
