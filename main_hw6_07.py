@@ -1,16 +1,22 @@
 def sanitize_file(source, output):
-    new_list = ''
-    map = {ord('9'): '', ord('8'): '', ord('7'): '', ord('6'): '', ord(
-        '5'): '', ord('4'): '', ord('3'): '', ord('2'): '', ord('1'): '', ord('0'): ''}
+    # new_list = ''
+    new_list2 = ''
+    # map = {ord('9'): '', ord('8'): '', ord('7'): '', ord('6'): '', ord(
+    #     '5'): '', ord('4'): '', ord('3'): '', ord('2'): '', ord('1'): '', ord('0'): ''}
     with open(source, "r") as file:
         while True:
             line = file.readline()
             if not line:
                 break
-            new_list += line.translate(map)
+            # new_list += line.translate(map)
+            for i in line:
+                if "0" <= i <= "9":
+                    continue
+                new_list2 += i
 
+    # print(new_list2)
     file = open(output, "w")
-    file.write(new_list)
+    file.write(new_list2)
     file.close
 
 
