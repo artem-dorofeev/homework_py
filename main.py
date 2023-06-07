@@ -12,15 +12,19 @@
 #     # print(key, value)
 #     print(f'{key} >>> {value}')
 
-ticket = list(['answ1', 'answ2', 'answ3', 'answ4'])
-print(ticket)
+# ticket = list(['answ1', 'answ2', 'answ3', 'answ4'])
+# print(ticket)
 
-copy_ticket = set(ticket)
-print(copy_ticket)
-print(copy_ticket)
-print(copy_ticket)
-print(copy_ticket)
-print(copy_ticket)
-print(copy_ticket)
-print(copy_ticket)
-print(copy_ticket)
+# copy_ticket = set(ticket)
+# print(copy_ticket)
+# print(copy_ticket)
+# print(copy_ticket)
+# print(copy_ticket)
+# print(copy_ticket)
+# print(copy_ticket)
+# print(copy_ticket)
+# print(copy_ticket)
+
+list_1 = ['Artem', 'Dorofeev', 'Irina', 'Diane', 'Mila']
+neme, sername, *family = list_1
+print(sername, family)
