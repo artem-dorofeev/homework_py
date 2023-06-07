@@ -1,28 +1,30 @@
-# def save_credentials_users(path, users_info):
-#     line_user = ''
-#     for key, value in users_info.items():
-#         line_user += key + ': ' + value + '\n'
+def save_credentials_users(path, users_info):
+    line_user = ''
+    for key, value in users_info.items():
+        line_user += key + ':' + value + '\n'
 
-#     with open(path, 'wb') as file:
-#         file.write(line_user.rstrip().encode())
+    with open(path, 'wb') as file:
+        file.write(line_user.rstrip().encode())
+
+
 """
 перша функція моя, друга скопійована із слаку і троха перероблена. моя теж працює, результат однаковий але хз чому не проходить автоперевірку 
 """
 
 
-def save_credentials_users(path, users_info):
-    with open(path, 'wb') as fh:
-        line_user = ''
-        for key, value in users_info.items():
-            line_user = key + ':' + value + '\n'
-            b_line_user = line_user.encode()
-            fh.write(b_line_user)
-    return True
+# def save_credentials_users(path, users_info):
+#     with open(path, 'wb') as fh:
+#         line_user = ''
+#         for key, value in users_info.items():
+#             line_user = key + ':' + value + '\n'
+#             b_line_user = line_user.encode()
+#             fh.write(b_line_user)
+#     return True
 
 
 line_user = ''
 
-users_info = {'andry': 'uyro18890D', 'steve': 'oppjM13LL9e'}
+users_info = {'and': 'uyro18890D', 'sve': 'oppjM13LL9e'}
 fl = 'raw_data.bin'
 
 
