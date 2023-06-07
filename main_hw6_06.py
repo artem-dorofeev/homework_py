@@ -16,14 +16,6 @@ def get_recipe(path, search_id):
                 break
     return result
 
-#             cats = {
-#                 "id": list_cats[0],
-#                 "name": list_cats[1],
-#                 "age": int(list_cats[2])
-#             }
-#             result.append(cats)
-
-#     return result
 
 
 path = 'hw6_06.txt'
