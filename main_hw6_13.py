@@ -1,17 +1,17 @@
 import shutil
 
 
-def create_backup(path, file_name, employee_residence):
+#def create_backup(path, file_name, employee_residence):
     # path_file = path + '/' + file_name
-    with open(path_file, 'wb') as fh:
-        line_user = ''
-        for key, value in employee_residence.items():
-            line_user = key + ' ' + value + '\n'
-            b_line_user = line_user.encode()
-            fh.write(b_line_user)
+#    with open(path_file, 'wb') as fh:
+#        line_user = ''
+#        for key, value in employee_residence.items():
+#            line_user = key + ' ' + value + '\n'
+#            b_line_user = line_user.encode()
+#            fh.write(b_line_user)
 
-    print(path_file)
-    return shutil.make_archive('backup_folder', 'zip', path)
+#    print(path_file)
+ #   return shutil.make_archive('backup_folder', 'zip', path)
 
 
 file_out = 'raw_data6_13.bin'
