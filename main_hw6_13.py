@@ -14,13 +14,13 @@ import shutil
  #   return shutil.make_archive('backup_folder', 'zip', path)
 
 
-file_out = 'raw_data6_13.bin'
-file_path = r'/home/A.Dorofeev/Desktop/py_git_hw/homework_py/hw_06_13'
+#file_out = 'raw_data6_13.bin'
+#file_path = r'/home/A.Dorofeev/Desktop/py_git_hw/homework_py/hw_06_13'
 
 employee = {'Michael': 'Canada', 'John': 'USA', 'Liza': 'Australia'}
 line_employee = ''
-b_line = ''
-print(create_backup(file_path, file_out, employee))
+#b_line = ''
+#print(create_backup(file_path, file_out, employee))
 
 
 """
