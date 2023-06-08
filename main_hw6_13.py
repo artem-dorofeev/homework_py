@@ -2,7 +2,7 @@ import shutil
 
 
 def create_backup(path, file_name, employee_residence):
-    path_file = path + '/' + file_name
+    # path_file = path + '/' + file_name
     with open(path_file, 'wb') as fh:
         line_user = ''
         for key, value in employee_residence.items():
