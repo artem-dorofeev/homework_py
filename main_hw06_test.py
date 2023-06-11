@@ -10,6 +10,8 @@ CATEGORIES = {"Audio": [".mp3", ".aiff"],
               "Photo": [".jpg", ".raw", ".nef"],
               "Video": [".avi", ".mp4", ".mkv"]}
 
+list_folder = ("Audio", "Documents", "Photo", "Video")
+
 
 def move_file(file: Path, root_dir: Path, categorie: str) -> None:
     target_dir = root_dir.joinpath(categorie)
@@ -33,12 +35,44 @@ def get_categories(file: Path) -> str:
     return "Other"
 
 
+# # def show_all_files(path: Path) -> None:
+# #     data = []
+# #     for item in path.iterdir():
+# #         if item.is_dir():
+# #             data.extend(show_all_files(item))
+# #         else:
+# #             data.append(item)
+# #     return data
+
+# def show_all_files(path: Path) -> None:
+#     for item in path.iterdir():
+#         if item.is_dir():
+#             show_all_files(item)
+    #     continue
+    # print(item)
+
+
 def sort_folder(path: Path) -> None:
+
     for item in path.glob("**/*"):
-        print(item)
+        # print(item)
+
         if item.is_file():
-            cat = get_categories(item)
-            move_file(item, path, cat)
+            print(f'this is file {item}')
+            # cat = get_categories(item)
+            # move_file(item, path, cat)
+
+    for item in path.glob("**/*"):
+        if item.is_dir():
+            # print(f'this is dir {item}')
+            # print(item.name)
+
+            if item.name not in list_folder:
+
+                try:
+                    item.rmdir()
+                except OSError:
+                    continue
 
 
 def main():
