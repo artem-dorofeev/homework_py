@@ -23,6 +23,3 @@ def normalize(name):
 
 if __name__ == "__main__":
     print(normalize("****Тестове ПоВідомлеННя -+=&%$#!****"))
-
-    text = 'Дорофеев Артем Павлович на работе шото делает !#$%&*+='
-    print(normalize(text))
