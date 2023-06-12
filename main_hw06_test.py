@@ -20,17 +20,39 @@ def move_file(file: Path, root_dir: Path, categorie: str) -> None:
     if not target_dir.exists():
         target_dir.mkdir()
     new_name = target_dir.joinpath(f"{normalize(file.stem)}{file.suffix}")
-    index = 1
-    while True:
+    index = None
+    if new_name.exists():
+        index = len([f for f in target_dir.glob(
+            "*") if new_name.stem in f.stem])
+        print(new_name)
+        print(index)
+    # while True:
+    #     if new_name.exists():
+    # #         # print(f'name {file} == {new_name}')
+    new_name = new_name.with_name(
+        f"{new_name.stem}{index if index else ''}{file.suffix}")
+    #     index += 1
+    # else:
+    file.rename(new_name)
+    # break
 
-        if new_name.exists():
-            # print(f'name {file} == {new_name}')
-            new_name = new_name.with_name(
-                f"{new_name.stem}_{index}{file.suffix}")
-            index += 1
-        else:
-            file.rename(new_name)
-            break
+
+# def move_file(file: Path, root_dir: Path, categorie: str) -> None:
+#     target_dir = root_dir.joinpath(categorie)
+#     if not target_dir.exists():
+#         target_dir.mkdir()
+#     new_name = target_dir.joinpath(f"{normalize(file.stem)}{file.suffix}")
+#     index = 1
+#     while True:
+
+#         if new_name.exists():
+#             # print(f'name {file} == {new_name}')
+#             new_name = new_name.with_name(
+#                 f"{new_name.stem}_{index}{file.suffix}")
+#             index += 1
+#         else:
+#             file.rename(new_name)
+#             break
 
     # file.rename(new_name)
 
@@ -71,12 +93,14 @@ def del_emppty_folders(path: Path) -> None:
 
 def upack_archive(path: Path) -> None:
     arch_path = path.joinpath("Archives")
-    for item in arch_path.iterdir():
-        # print(f'archive - {item.stem}')
-        output_arch = arch_path.joinpath(item.stem)
-        # print(output_arch)
-        output_arch.mkdir()
-        shutil.unpack_archive(item, output_arch)
+    if arch_path.exists():
+
+        for item in arch_path.iterdir():
+            # print(f'archive - {item.stem}')
+            output_arch = arch_path.joinpath(item.stem)
+            # print(output_arch)
+            output_arch.mkdir()
+            shutil.unpack_archive(item, output_arch)
 
 
 def main():
