@@ -42,35 +42,17 @@ def get_categories(file: Path) -> str:
     return "Other"
 
 
-# def sort_folder(path: Path) -> None:
-#     global count_files
-#     for item in path.glob("**/*"):
-
-#         if item.is_file():
-#             # print(f'this is file {item}')
-#             count_files += 1
-#             cat = get_categories(item)
-#             move_file(item, path, cat)
-
-
 def sort_folder(path: Path) -> None:
     global count_files
-    # global LIST_FOLDERS_SORT
+    global LIST_FOLDERS_SORT
     objects_list = path.glob("**/*")
-    print(objects_list)
+    print(list(objects_list))
     for item in [i for i in objects_list if i.name not in LIST_FOLDERS_SORT]:
-        # print(f'count in for {count_file}')
-        # print(item.stem)
-        # if item.stem not in LIST_FOLDERS_SORT:
-        # print(item.stem)
+
         if item.is_file():
-            # print(f'count in if {count_file}')
             count_files += 1
-            # print(item)
             cat = get_categories(item)
             move_file(item, path, cat)
-        # else:
-        #     print(item.stem, count_files)
 
 
 def del_emppty_folders(path: Path) -> None:
@@ -96,9 +78,7 @@ def upack_archive(path: Path) -> None:
     if not arch_path.exists():
         arch_path.mkdir()
     for item in arch_path.iterdir():
-        # print(f'archive - {item.stem}')
         output_arch = arch_path.joinpath(item.stem)
-        # print(output_arch)
         output_arch.mkdir()
         shutil.unpack_archive(item, output_arch)
         item.unlink()
