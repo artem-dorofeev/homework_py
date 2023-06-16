@@ -1,21 +1,25 @@
-# def solve_riddle(riddle, word_length, start_letter, reverse=False):
+def solve_riddle(riddle, word_length, start_letter, reverse=False):
+    result = ''
+    if reverse == True:
+        riddle = riddle[::-1]
+    num = riddle.find(start_letter)
+    if (num + word_length) <= len(riddle):
+        result = riddle[num:num + word_length]
+    return result
 
 
-text_rebus = 'jghsghwma'
-riddle = text_rebus
-start_letter = 'm'
-word_length = 4
-reverse = False
+text_rebus = 'qwertyuiopasdfghjkl'
+# riddle = text_rebus
+# start_letter = 'm'
+# word_length = 4
+# reverse = False
 
+print(solve_riddle(text_rebus, 6, 't', True))
 
-if reverse == True:
-    riddle = riddle[::-1]
-num = riddle.find(start_letter)
-result = riddle[num:num + word_length]
-
-print(riddle)
-print(start_letter)
-print(result)
+# print(len(riddle), num)
+# print(riddle)
+# print(start_letter)
+# print(result)
 
 
 """
