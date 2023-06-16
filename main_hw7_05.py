@@ -29,6 +29,20 @@ result = capital_text(umova)
 print(result)
 print(umova)
 
+# це виконання від ментора
+# def capital_text(s):
+#     s = s.strip().capitalize()
+#     next_capital = False
+#     result = ''
+#     for ch in s:
+#         if ch in ["!", ".", "?"]:
+#             next_capital = True
+#         if ch.isalpha() and next_capital:
+#             ch = ch.upper()
+#             next_capital = False
+#         result += ch
+#     return result
+
 # p = re.sub(r'\.\ [a-z]', 'TTT', umova)
 # print(p)
 
