@@ -1,5 +1,17 @@
-# def all_sub_lists(data):
+def all_sub_lists(data):
+    quantity = 0
+    result_list = []
+    for i in data:
+        quantity += 1
+    for i in data:
+        result_list.append(i)
 
+    return result_list
+
+
+list_test = [1, 2, 3]
+
+print(all_sub_lists(list_test))
 """
 
 
