@@ -1,15 +1,23 @@
 def all_sub_lists(data):
     quantity = 0
     result_list = []
+    temp_list = []
+    result_list.append(temp_list)
     for i in data:
         quantity += 1
-    for i in data:
-        result_list.append(i)
+    # for i in data:
+    #     result_list.append(i)
+    # qu2 = len(data)
+    # print(quantity, qu2)
+    for i in range(quantity):
+        for k in range(i, quantity):
+            temp_list = data[i:k+1]
+            result_list.append(temp_list)
 
-    return result_list
+    return sorted(result_list, key=len)
 
 
-list_test = [1, 2, 3]
+list_test = [1, 2, 3, 4]
 
 print(all_sub_lists(list_test))
 """
