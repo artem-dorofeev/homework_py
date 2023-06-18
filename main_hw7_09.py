@@ -5,10 +5,7 @@ def all_sub_lists(data):
     result_list.append(temp_list)
     for i in data:
         quantity += 1
-    # for i in data:
-    #     result_list.append(i)
-    # qu2 = len(data)
-    # print(quantity, qu2)
+
     for i in range(quantity):
         for k in range(i, quantity):
             temp_list = data[i:k+1]
