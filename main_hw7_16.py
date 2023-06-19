@@ -1,6 +1,14 @@
 def decode(data):
-    list_out = []
-    return list_out
+    result_list = []
+    print(data)
+    if len(data) > 0:
+        first_list = list(data[0]) * data[1]
+        print(first_list)
+        second_list = decode(data[2:])
+        print(second_list)
+        result_list = first_list + second_list
+
+    return result_list
 
 
 test_list = ["X", 3, "Z", 2, "X", 2, "Y", 3, "Z", 2]
@@ -10,9 +18,6 @@ print(result)
 
 
 """
-
-
-
 
 Розберемо просту техніку кодування та декодування на основі серій. Наприклад, у нас є список із повторюваними спостереженнями якоїсь величини, 
 вона може приймати значення X, Y або Z. Значення з'являються у довільному порядку та зберігаємо ми їх у списку 

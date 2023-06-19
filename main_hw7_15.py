@@ -12,6 +12,13 @@
 
 #     return result_list
 
+
+# test_list = [1, 2, [3, 4, [5, 6]], 7]
+# test_list2 = [1, 2, 5, 7]
+# result = flatten(test_list)
+# print(result)
+
+
 def flatten(data):
     lis_out = []
     if data == []:

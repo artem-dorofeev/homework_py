@@ -1,19 +1,16 @@
 def get_employees_by_profession(path, profession):
     list_prof = []
-    str_prof = ''
+
     with open(path, 'r') as file:
         while True:
             result = file.readline()
             if not result:
                 break
 
-            # list_prof.append(result.strip()) if result.find(profession) > 0 else continue
             line = result.find(profession)
 
             if line > 0:
                 list_prof.append(result.strip())
-
-        # str_prof = "".join(list_prof)
 
         return "".join(list_prof).replace(profession, "").strip()
 
