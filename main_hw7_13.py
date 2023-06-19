@@ -1,21 +1,28 @@
 def get_employees_by_profession(path, profession):
-
+    list_prof = []
+    str_prof = ''
     with open(path, 'r') as file:
-        str_find = file.readline()
+        while True:
+            result = file.readline()
+            if not result:
+                break
 
-    # with open(path, 'r') as file:
+            # list_prof.append(result.strip()) if result.find(profession) > 0 else continue
+            line = result.find(profession)
 
-    #     file.seek(start_pos)
-    #     result = file.read()[0:count_chars]
+            if line > 0:
+                list_prof.append(result.strip())
 
-    return result
+        # str_prof = "".join(list_prof)
+
+        return "".join(list_prof).replace(profession, "").strip()
 
 
-info = "test file - hello word"
-path = 'D:\\test\\test_py.txt'
+info = "foto"
+path = 'D:\\test\\test2_py.txt'
 count = 7
 start = 15
-result = file_operations(path, info, start, count)
+result = get_employees_by_profession(path, info)
 
 
 print(result)
