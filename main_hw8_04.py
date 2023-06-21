@@ -3,12 +3,20 @@ from random import randrange
 
 def get_numbers_ticket(min, max, quantity):
     result = []
+    if min < 1 or max > 1000 or quantity < min or quantity > max:
+        return result
+    while len(result) < quantity:
+        item = randrange(min, max)
+        if item not in result:
+            result.append(item)
+
+    result.sort()
     return result
 
 
 min = 1
-max = 49
-quantity = 6
+max = 10
+quantity = 8
 
 result = get_numbers_ticket(min, max, quantity)
 print(result)
