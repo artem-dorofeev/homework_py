@@ -5,7 +5,32 @@ Cat = collections.namedtuple("Cat", ["nickname", "age", "owner"])
 
 def convert_list(cats):
 
-    return
+    if isinstance(cats[0], dict):
+        result = []
+        for i in cats:
+            cat = Cat(i.get("nickname"), i.get("age"), i.get("owner"))
+            result.append(cat)
+    else:
+        result = []
+        for i in cats:
+            cats_dict = {"nickname": i.nickname,
+                         "age": i.age, "owner": i.owner}
+            result.append(cats_dict)
+
+    return result
+
+
+list_cat = [Cat("Mick", 5, "Sara"), Cat(
+    "Barsik", 7, "Olga"), Cat("Simon", 3, "Yura")]
+
+list_cat2 = [
+    {"nickname": "Mick", "age": 5, "owner": "Sara"},
+    {"nickname": "Barsik", "age": 7, "owner": "Olga"},
+    {"nickname": "Simon", "age": 3, "owner": "Yura"},
+]
+
+
+print(convert_list(list_cat2))
 
 
 """
