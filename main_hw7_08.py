@@ -27,7 +27,7 @@ def token_parser(s):
     return result
 
 
-example = '(2+ 3) *4 - 5 * 3'
+example = '(2+ 34) *4 - 5 * 3'
 # example = '2+ 34 - 5 * 3 / 556 - (3+'
 # example = ''
 
