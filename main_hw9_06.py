@@ -20,7 +20,6 @@ def generator_numbers(string=""):
 
     i = 0
     while i < len(list_cash):
-        # print(result[i])
         result = yield list_cash[i]
         i += 1
     return result
@@ -29,23 +28,17 @@ def generator_numbers(string=""):
 def sum_profit(string):
     result = generator_numbers(string)
     summ = 0
-    # for i in result:
-    #     summ += i
+    for i in result:
+        summ += i
 
-    # print(summ)
+    print(summ)
 
     return summ
 
 
 profit = 'The resulting profit was: from the southern possessions $ 100, from the northern colonies $500, and the king gave $1000.'
 
-profit2 = 'gfg 12 99'
-# result = generator_numbers(profit)
 sum_profit(profit)
-
-# print(result)
-# result2 = sanitize_phone_number(phone_num2)
-# print(result2)
 
 """
 

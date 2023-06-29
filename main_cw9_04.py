@@ -1,10 +1,15 @@
-def get_letter(word):
-    for i in word:
-        yield i
+def custom_range(start, stop=None):
+    counter = start if stop else 0
+
+    stop = start if not stop else stop
+
+    while counter < stop:
+        yield counter
+        counter += 1
 
 
-gen_letter = get_letter("python")
+renge_gen = custom_range(10)
 
-print(next(gen_letter))
-print(next(gen_letter))
-print(next(gen_letter))
+
+for i in range(11):
+    next(renge_gen)
