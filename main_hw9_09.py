@@ -1,24 +1,19 @@
-for i in filter(lambda x: x % 2, range(1, 10 + 1)):
-    print(i)
+def positive_values(list_payment):
+    result = []
+    for i in filter(lambda x: x > 0, list_payment):
+        result.append(i)
+    return result
 
-# result = get_emails(name)
-# print(result)
+
+name = [100, -3, 400, 35, -100]
+result = positive_values(name)
+print(result)
 
 """
+На початку четвертого модуля ми вирішували завдання виплат за комунальними платежами. 
+Вони являли собою список payment з додатними та від'ємними значеннями. Створіть функцію positive_values 
+та за допомогою функції filter відфільтруйте список payment за додатними значеннями, та поверніть його з функції.
 
-Є список contacts, елементи якого - словники контактів наступного виду:
-
-{
-    "name": "Allen Raymond",
-    "email": "nulla.ante@vestibul.co.uk",
-    "phone": "(992) 914-3792",
-    "favorite": False,
-}
-
-Словник містить ім'я користувача, його email, телефонний номер та властивість - обраний контакт чи ні.
-
-Розробіть функцію get_emails, яка отримує у параметрі список list_contacts та повертає список, 
-який містить електронні адреси всіх контактів зі списку list_contacts. Використовуйте функцію map.
-
+payment = [100, -3, 400, 35, -100]
 
 """
