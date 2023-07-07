@@ -17,13 +17,21 @@ class Dog(Animal):
         return "Woof"
 
 
-# owner1 = Owner("Artem", 40, "UA")
-# owner2 = Owner("Ira", 40, "US")
-# dog1 = Dog("Mila", 10, "Taksa", owner1)
+class CatDog(Cat, Dog):
+    def info(self):
+        return f"{self.nickname}-{self.weight}"
 
-# print(owner1.info())
-# print(owner2.info())
-# print(dog1.say(), dog1.breed, dog1.who_is_owner())
+
+class DogCat(Dog, Cat):
+    def info(self):
+        return f"{self.nickname}-{self.weight}"
+
+
+cat = CatDog("koshka", 5)
+dog = DogCat("pesel", 8)
+
+print(cat.info(), dog.info())
+
 """
 Створіть два класи: CatDog та DogCat. Ці класи повинні наслідуватись від двох класів відразу: Cat та Dog. 
 Після успадкування в екземпляра класу CatDog, батьківський метод say повинен повертати "Meow", а у класу DogCat — "Woof". 
