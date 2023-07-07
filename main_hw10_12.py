@@ -3,16 +3,23 @@ class IDException(Exception):
 
 
 def add_id(id_list, employee_id):
+    if not employee_id.startswith('01'):
+        raise IDException
+    else:
+        id_list.append(employee_id)
 
-    return None
+    return id_list
 
 
-# test_str = "ksgfj 7 kjs 888 shgjhsg 99 lslgn2"
-# result = NumberString(test_str)
-# print(result.number_count())
-# test_str = NumberString('w1w1w222')
-# result = test_str.number_count()
-# print(result)
+test_str = 'test str'
+# if not test_str.startswith('te'):
+#     print('yes')
+# else:
+#     print('no')
+id_list = ['mmm', 'bbbb']
+result = add_id(id_list, test_str)
+print(result)
+
 """
 
 Створіть клас IDException, який успадковуватиме клас Exception.
