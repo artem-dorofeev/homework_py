@@ -8,10 +8,15 @@ class Contacts:
         return self.contacts
 
     def add_contacts(self, name, phone, email, favorite):
-        contact = {"id": self.current_id, "name": name,
-                   "phone": phone, "email": email, "favorite": favorite}
-        self.contacts.append(contact)
-        self.current_id += 1
+        self.contacts.append(
+            {
+                "id": Contacts.current_id,
+                "name": name,
+                "phone": phone,
+                "email": email,
+                "favorite": favorite,
+            })
+        Contacts.current_id += 1
         # Contacts.list_contacts(self)
 
 
