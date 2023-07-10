@@ -24,6 +24,10 @@ class Contacts:
         return result[0] if len(result) > 0 else None
 
     def remove_contacts(self, id):
+        for i in self.contacts:
+            if i["id"] == id:
+                self.contacts.remove(i)
+                # print("ok")
         return None
         
         
