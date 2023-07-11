@@ -1,30 +1,50 @@
-# ticket = {'quest': 'text question', 'answ1': 'text answ1', 'answ2': 'text'}
+from collections import UserDict
+    
+    
+class Field:
+    def __init__(self, value) -> None:
+        self.value = value
+        
+        
+class Name(Field):
+    def __init__(self, value) -> None:
+        super().__init__(value)
+        
+    
+    
+class Phone(Field):
+    def __init__(self, value) -> None:
+        super().__init__(value)
+    
+    
+class Record():
+    def __init__(self, name:Name, phone:Phone=None) -> None:
+        self.name = name
+        self.phones = []
+        if phone:
+            self.phones.append(phone)
 
-# # grade = {'F': 1, 'FX': 2, 'E': 3, 'D': 3, 'C': 4, 'B': 5, 'A': 5}
-# # print(ticket['answ1'])
 
-# print(f'Question > {ticket["quest"]}')
+class AddressBook(UserDict):
+    # def __init__(self):
+    #     self.addressbook = {}
+    def add_record(self, rec:Record):
+        self.data[rec.name.value] = rec
+        print(self)
+        print(self.data)
+    # def add_phone(phone):
+    #     pass
 
-# for key in ticket:
-#     print(key)
+def main():
+    user1 = Name('Artem')
+    print(user1.value)
+    user1_phone = Phone('+38000')
+    print(user1_phone.value)
+    rec_ph = Record(user1, user1_phone)
+    # print(rec_ph.name, rec_ph.phones)
+    adr_b = AddressBook()
+    print(adr_b.add_record(rec_ph))
 
-# for key, value in ticket.items():
-#     # print(key, value)
-#     print(f'{key} >>> {value}')
-
-# ticket = list(['answ1', 'answ2', 'answ3', 'answ4'])
-# print(ticket)
-
-# copy_ticket = set(ticket)
-# print(copy_ticket)
-# print(copy_ticket)
-# print(copy_ticket)
-# print(copy_ticket)
-# print(copy_ticket)
-# print(copy_ticket)
-# print(copy_ticket)
-# print(copy_ticket)
-
-list_1 = ['Artem', 'Dorofeev', 'Irina', 'Diane', 'Mila']
-neme, sername, *family = list_1
-print(sername, family)
+if __name__ == "__main__":
+    main()
+    print('ok')
