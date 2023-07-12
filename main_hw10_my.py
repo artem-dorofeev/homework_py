@@ -1,4 +1,5 @@
-from collections import UserDict
+from collections import UserDict, UserList
+from normalize_phone import normalize_phone
 
 
 class AddressBook(UserDict):
@@ -18,10 +19,11 @@ class AddressBook(UserDict):
 
     def add_phone(phone):
         pass
-    
+
 
 class Field():
     pass
+
 
 class Name:
     def __init__(self, name) -> None:
@@ -31,20 +33,20 @@ class Name:
 class Phone():
     def __init__(self, number) -> None:
         self.number = number
-         
+
+
 class Record():
     def __init__(self, name) -> None:
         self.name = name.name
 
-        
+    
 
     """Клас Record, який відповідає за логіку додавання/видалення/редагування необов'язкових полів та зберігання обов'язкового поля Name."""
-    pass       
- 
+    pass
 
 
 if __name__ == "__main__":
-    
+
     ab = AddressBook()
     name = Name("Bill")
     print(name.name)
@@ -52,24 +54,24 @@ if __name__ == "__main__":
     print(phone1.number)
     rec = Record(name)
     print(rec.name)
-    
+
     # ab.add_record(rec)
     ab.add(rec)
-    
+
     # ab.add_record(Record(Name("Jill")))
-    
+
     # for rec in ab.values():
     #     assert isinstance(rec, Record)
-    
+
     # phone2 = Phone("56784")
     # print(ab)
-        
+
     # rec = ab["Jill"]
     # print(rec)
-    
+
     # rec.add_phone(phone2)
     # print(rec)
-    
+
     # rec.change_phone(Phone("56784"), Phone("99345"))
-    
+
     # print(ab)
