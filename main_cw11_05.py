@@ -1,7 +1,7 @@
 class Aquarium:
     def __init__(self, fishes):
         self.fishes = fishes
-    
+
     def __iter__(self):
         self.current_index = 0
         return self
@@ -12,6 +12,11 @@ class Aquarium:
             self.current_index += 1
             return f
         raise StopIteration
+
+
+# class RandomFish:
+#     def __init__(self, max_fish) -> None:
+#         pass
 
 
 aqua = Aquarium(["neon", "scalariya", "shark"])

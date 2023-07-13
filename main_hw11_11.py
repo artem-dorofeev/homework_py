@@ -1,3 +1,6 @@
+from random import randrange
+
+
 class Point:
     def __init__(self, x, y):
         self.__x = None
@@ -24,7 +27,7 @@ class Point:
             self.__y = y
 
     def __str__(self):
-        return "Point({},{})".format(self.x, self.y)
+        return f"Point({self.x},{self.y})"
 
 
 class Vector:
@@ -58,16 +61,19 @@ class Vector:
         x = self.coordinates.x - vector.coordinates.x
         y = self.coordinates.y - vector.coordinates.y
         return Vector(Point(x, y))
-    
+
     def __mul__(self, vector):
-        return (self.coordinates.x * vector.coordinates.x + self.coordinates.y * vector.coordinates.y)
-    
+        return (
+            self.coordinates.x * vector.coordinates.x
+            + self.coordinates.y * vector.coordinates.y
+        )
+
     def len(self):
-        return ((self.coordinates.x ** 2 + self.coordinates.y ** 2) ** 0.5)
+        return (self.coordinates.x ** 2 + self.coordinates.y ** 2) ** 0.5
 
     def __str__(self):
-        return "Vector({},{})".format(self.coordinates.x, self.coordinates.y)
-    
+        return f"Vector({self.coordinates.x},{self.coordinates.y})"
+
     def __eq__(self, vector):
         return self.len() == vector.len()
 
@@ -85,6 +91,30 @@ class Vector:
 
     def __ge__(self, vector):
         return self.len() >= vector.len()
+
+
+class Iterable:
+    def __init__(self, max_vectors, max_points):
+        self.current_index = 0
+        self.vectors = []
+        self.max_vectors = max_vectors
+
+    def __next__(self):
+        if self.current_index < self.max_vectors:
+            self.vectors.append()
+
+
+class RandomVectors:
+    def __init__(self, max_vectors=10, max_points=50):
+        self.vectots = []
+        self.max.vectors = max_vectors
+        self.max_points = max_points
+        for i in range(max_vectors):
+            self.vectots.append(randrange(0, self.max_points))
+
+    def __iter__(self):
+        return Iterable(self.vectots)
+
 
 vector1 = Vector(Point(1, 10))
 vector2 = Vector(Point(3, 10))
