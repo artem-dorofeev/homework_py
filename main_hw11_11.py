@@ -94,37 +94,40 @@ class Vector:
 
 
 class Iterable:
-    def __init__(self, max_vectors, max_points):
+    def __init__(self, vectors_list, max_vectors):
         self.current_index = 0
-        self.vectors = []
+        self.vectors = vectors_list
         self.max_vectors = max_vectors
 
     def __next__(self):
-        if self.current_index < self.max_vectors:
-            self.vectors.append()
+        if self.current_index < len(self.vectors):
+            v = self.vectors[self.current_index]
+            self.current_index += 1
+            return v
+        raise StopIteration
 
 
 class RandomVectors:
     def __init__(self, max_vectors=10, max_points=50):
-        self.vectots = []
-        self.max.vectors = max_vectors
+        self.vector_list = []
+        self.max_vectors = max_vectors
         self.max_points = max_points
-        for i in range(max_vectors):
-            self.vectots.append(randrange(0, self.max_points))
+        i = 0
+        while i < max_vectors:
+            v = Vector(Point(randrange(0, self.max_points),
+                       randrange(0, self.max_points)))
+            print(v)
+            i += 1
+            self.vector_list.append(v)
 
     def __iter__(self):
-        return Iterable(self.vectots)
+        return Iterable(self.vector_list, self.max_vectors)
 
 
-vector1 = Vector(Point(1, 10))
-vector2 = Vector(Point(3, 10))
+vectors = RandomVectors(1, 10)
 
-print(vector1 == vector2)  # False
-print(vector1 != vector2)  # True
-print(vector1 > vector2)  # False
-print(vector1 < vector2)  # True
-print(vector1 >= vector2)  # False
-print(vector1 <= vector2)  # True
+for vector in vectors:
+    print(vector)
 
 
 """
