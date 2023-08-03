@@ -10,12 +10,14 @@ class Person:
 
 
 class Contacts:
-    def __init__(self, filename: str, contacts: list[Person] = None, count_save=0):
+    def __init__(self, filename: str, contacts: list[Person] = None):
         if contacts is None:
             contacts = []
         self.filename = filename
         self.contacts = contacts
-        self.count_save = count_save
+        self.count_save = 0
+        self.is_unpacking = False
+        
 
     def save_to_file(self):
         with open(self.filename, "wb") as file:
@@ -28,8 +30,14 @@ class Contacts:
 
     def __getstate__(self):
         attributes = self.__dict__.copy()
-        attributes['count_save'] += 1
+        attributes["count_save"] = attributes["count_save"] + 1
         return attributes
+
+    def __setstate__(self, value):
+        self.__dict__ = value
+        self.is_unpacking = True
+
+        
 
 
 adb = [{"name": "Allen Raymond",
@@ -47,44 +55,29 @@ allen = Person("Allen Raymond", "nulla.ante@vestibul.co.uk",
                "(992) 914-3792", False)
 print(allen.name, allen.email)
 
-
 persons = Contacts("user_class.dat", adb)
 persons.save_to_file()
-first = persons.read_from_file()
-first.save_to_file()
-second = first.read_from_file()
-second.save_to_file()
-third = second.read_from_file()
-
-print(persons.count_save)  # 0
-print(first.count_save)  # 1
-print(second.count_save)  # 2
-print(third.count_save)  # 3
-
+person_from_file = persons.read_from_file()
+print(persons.is_unpacking)  # False
+print(person_from_file.is_unpacking)  # True
 
 
 """
 
 
-Ми продовжимо розширювати приклад попереднього завдання. Додайте до класу Contacts атрибут count_save, 
-за замовчуванням він повинен мати значення 0. Реалізуйте магічний метод __getstate__ для класу Contacts. 
-При упаковуванні екземпляра метод класу повинен збільшувати значення атрибута count_save на одиницю. 
-Таким чином, ця властивість - лічильник повторних операцій пакування екземпляра класу
+Продовжуємо розширювати приклад із попереднього завдання. Додайте до класу Contacts атрибут is_unpacking, 
+за замовчуванням він повинен мати значення False. Реалізуйте магічний метод __setstate__ для класу Contacts. 
+При розпаковуванні екземпляра класу метод повинен змінювати значення атрибута is_unpacking на значення True. 
+Таким чином, ця властивість визначатиме, що екземпляр класу отримано внаслідок розпакування.
 
 Приклад роботи коду:
 
 persons = Contacts("user_class.dat", contacts)
 persons.save_to_file()
-first = persons.read_from_file()
-first.save_to_file()
-second = first.read_from_file()
-second.save_to_file()
-third = second.read_from_file()
+person_from_file = persons.read_from_file()
+print(persons.is_unpacking)  # False
+print(person_from_file.is_unpacking)  # True
 
-print(persons.count_save)  # 0
-print(first.count_save)  # 1
-print(second.count_save)  # 2
-print(third.count_save)  # 3
 
 
 """
